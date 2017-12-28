@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>0day/m</title>
+<style>
+.ibtn	{padding:0 2px;cursor:pointer;border:0;color:#505050;height:16px;vertical-align:middle;
+border: 1 1 1 1;
+display: inline;
+border-color: black;
+}
+.xbtn{
+cursor: pointer;
+margin: 0 5px;
+padding: 1;
+border-radius: 3px;
+border: 1px solid black;
+font-family: "Arial";
+background: #f9f99f;
+font-size: 20px;
+line-height: 20px;
+width: auto;
+height: 28px;
+box-sizing: content-box;
+}
+</style>
+<script>
+function xgo(uri){
+var link = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+	link.href = uri;
+	link.target = '_blank';
+var event = new MouseEvent('click', {
+	'view': window,
+	'bubbles': false,
+	'cancelable': true
+		});
+	link.dispatchEvent(event);
+}
+function go(uri){
+	window.open(uri, '_blank', 'location=1');
+}
+function bCat(n){
+	var utc = new Date();
+	var t = new Date(utc.getTime() - (utc.getTimezoneOffset() * 60000) + 86400000 * n);
+	xgo('http://ponos.s3.dualstack.ap-northeast-1.amazonaws.com/information/appli/battlecats/event/tw/' + t.toISOString().substring(0,10).replace(/-/g,'') + '.html');
+}
+</script>
+</head>
+<body style='margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:2.0'>
+<ul type=square>
+ <li>0day : <span class=xbtn onclick='xgo("https://apk.tw")'>apk.tw</span>
+ 	<span class=xbtn onclick='xgo("https://awabest.com/forum.php")'>awabest</span>
+	<span class=xbtn onclick='xgo("http://www.xfastest.com/forum.php")'>xFast</span>
+ <li><span class=xbtn onclick='go("https://ponos.s3.amazonaws.com/information/appli/battlecats/calendar/tw/index.html")'>貓咪</span> :
+	<span class=xbtn onclick='bCat(-2)'>前</span> 
+	<span class=xbtn onclick='bCat(-1)'>昨</span> 
+	<span class=xbtn onclick='bCat(0)'>今</span> 
+	<span class=xbtn onclick='bCat(1)'>明</span> 
+</ul>
+<div>
+	<a id=az href="https://apk.tw" target=_blank>apk.tw</a>
+</div>
+</body>
+</html>
+<!-- vim: set ts=4 sw=4 tw=1024 fdm=marker noai noet: -*- coding: utf-8 -*- -->
