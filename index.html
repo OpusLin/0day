@@ -27,6 +27,17 @@ font-size: 36px;
 font-family:Meiryo,"微軟正黑體","Microsoft JhengHei",Verdana,Arial,sans-serif;
 height: 48px;
 }
+span.o{
+cursor: pointer;
+margin: 0 5px;
+padding: 2;
+border-radius: 4px;
+border: 1px solid black;
+background: #f9f99f;
+font-size: 28px;
+font-family:Meiryo,"微軟正黑體","Microsoft JhengHei",Verdana,Arial,sans-serif;
+height: 40px;
+}
 </style>
 <script>
 function _go(uri){
@@ -54,9 +65,9 @@ function xLoad()
 		ua += ' : ' + window.orientation;
 		css = ' m';
 	}
-	else
+	else if (/Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini|Slimjet/i.test(ua))
 	{
-		if (/Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini|Slimjet/i.test(ua)) css = ' m';
+		css = (/OPR/g.test(ua)) ? ' o' : ' m';
 	}
 	var x = document.querySelector('ul');
 	var i = document.createElement('li');
@@ -91,6 +102,7 @@ function xLoad()
 <li><span onclick='go("https://m.facebook.com/")'>FB</span>
 <li><span onclick='go("https://app.simplenote.com")'>SimpleNote</span>
 	<span onclick='go("https://www.evernote.com/Home.action")'>EverNote</span>
+	<span onclick='go("https://www.uu.me/note/en-us.html")'>mxNote</span>
 </ul>
 </body>
 </html>
